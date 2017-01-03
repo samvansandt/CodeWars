@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+public static class TimeFormat
+{
+    public static string GetReadableTime(int seconds)
+    {
+        int total = seconds;
+            int second = 0;
+            int minutes = 0;
+            int hours = 0;
+            string hourstest;
+            string minutestest;
+            string secondtest;
+
+            hours = total / 3600;
+            minutes = ((total % 3600) /60);
+            second = total -( (hours * 3600) + (minutes * 60));
+
+            if (hours < 10)
+            {
+               hourstest = String.Format("0" + hours);
+            }
+            else hourstest = hours.ToString();
+
+            if (minutes < 10)
+            {
+                minutestest = String.Format("0" + minutes);
+            }
+            else minutestest = minutes.ToString();
+
+            if (second < 10)
+            {
+                secondtest = String.Format("0" + second);
+            }
+            else secondtest = second.ToString();
+
+
+            //Console.WriteLine(hourstest + "and" + minutestest + " and " + secondtest);
+
+
+            string time = String.Format(hourstest + ":" + minutestest + ":" + secondtest);
+           
+            return time;
+    }
+}
